@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AAF853A1DD7B4F400FF722A /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF85391DD7B4F400FF722A /* AnalyticsService.swift */; };
 		7CFB28581DD255F100443606 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFB28571DD255F100443606 /* AppDelegate.swift */; };
 		7CFB285A1DD255F100443606 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFB28591DD255F100443606 /* ViewController.swift */; };
 		7CFB285D1DD255F100443606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFB285B1DD255F100443606 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AAF85391DD7B4F400FF722A /* AnalyticsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		7CFB28541DD255F100443606 /* ios-interview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-interview.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFB28571DD255F100443606 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CFB28591DD255F100443606 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				7CFB285E1DD255F100443606 /* Assets.xcassets */,
 				7CFB28601DD255F100443606 /* LaunchScreen.storyboard */,
 				7CFB28631DD255F100443606 /* Info.plist */,
+				1AAF85391DD7B4F400FF722A /* AnalyticsService.swift */,
 			);
 			path = "ios-interview";
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			files = (
 				7CFB28781DD265F600443606 /* AnalyticsSDKs.swift in Sources */,
 				7CFB285A1DD255F100443606 /* ViewController.swift in Sources */,
+				1AAF853A1DD7B4F400FF722A /* AnalyticsService.swift in Sources */,
 				7CFB28581DD255F100443606 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +412,7 @@
 				7CFB28731DD255F100443606 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7CFB28741DD255F100443606 /* Build configuration list for PBXNativeTarget "ios-interviewTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +421,7 @@
 				7CFB28761DD255F100443606 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
