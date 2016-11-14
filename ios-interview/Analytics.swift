@@ -17,52 +17,9 @@ class Analytics {
     let meditationService = MeditationServiceImpl()
 }
 
+// all services that are part of Analytics conform to this protocol
 protocol AnalyticsService {
-    func sendEvent(event: String, user: String, data: [String:String]?)
-}
-
-protocol LoginService: AnalyticsService {
-    func login(user: String)
-}
-
-class LoginServiceImpl: LoginService {
-    let textColor = "blue"
-    
-    func sendEvent(event: String, user: String, data: [String:String]? = nil) {
-        switch event {
-        case "login":
-            login(user: user)
-        default:
-            break
-        }
-    }
-    
-    private func login(user: String) {
-        // Send login event to the following SDKs
-        GoogleAnalyticsSDK.sharedInstance.sendEvent("login", forUser: user, withData: ["buttonColor" : textColor])
-        SnowplowSDK.sharedInstance.dispatchEvent("log_in", withPayload: [
-            "userID": user
-            ])
-    }
-}
-
-protocol MeditationService: AnalyticsService {
-    func completedMeditation(user: String, data: [String:String]?)
-}
-
-class MeditationServiceImpl: MeditationService {
-    func sendEvent(event: String, user: String, data: [String : String]? = nil) {
-        switch event {
-        case "started":
-            break
-        case "completed":
-            completedMeditation(user: user, data: data)
-        default:
-            break
-        }
-    }
-    private func completedMeditation(user: String, data: [String : String]? = nil) {
-        // Send meditation completion event to Google Analytics
-        GoogleAnalyticsSDK.sharedInstance.sendEvent("completeMeditation", forUser: user, withData: data ?? [:])
-    }
+    var analyticsData: [String: String] { get set }
+    // given an event string, sends the data associated with the event to the corresponding SDK
+    func sendEvent(event: String, data: [String:String]?)
 }
