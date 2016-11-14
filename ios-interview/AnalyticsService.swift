@@ -8,6 +8,13 @@
 
 import Foundation
 
+class Analytics {
+    static let sharedInstance = Analytics()
+    
+    let loginService = LoginService()
+    let completedMeditationService = CompletedMeditationService()
+}
+
 protocol AnalyticsService {
     func sendEvent(user: String, data: [String:String]?)
 }

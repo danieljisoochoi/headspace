@@ -8,25 +8,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-    //let analyticsService: AnalyticsService
-    
+    // initialize variable to shorten calls to analytics
+    let analyticsService = Analytics.sharedInstance
+    let user = "HSUSER_234234"
+    let session = "HSSESSION_123111"
     
     // MARK: Actions
 
     @IBAction func login(_ sender: UIButton) {
-        // Send login event to Google Analytics and Snowplow.
-        GoogleAnalyticsSDK.sharedInstance.sendEvent("login", forUser: "HSUSER_234234", withData: [
-            "buttonColor": "blue"
-        ])
-        SnowplowSDK.sharedInstance.dispatchEvent("log_in", withPayload: [
-            "userID": "HSUSER_234234"
-        ])
+        analyticsService.loginService.sendEvent(user: user, data: ["buttonColor": "blue"])
     }
 
     @IBAction func completeMeditation(_ sender: UIButton) {
-        // Send meditation completion event to Google Analytics
-        GoogleAnalyticsSDK.sharedInstance.sendEvent("completeMeditation", forUser: "HSUSER_234234", withData: [
-            "sessionID": "HSSESSION_123111"
-        ])
+        analyticsService.completedMeditationService.sendEvent(user: user, data: ["sessionID": session])
     }
 }
