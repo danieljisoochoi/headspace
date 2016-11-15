@@ -20,9 +20,43 @@ class ios_interviewTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testLoginAnalytics() {
+        // given
+        let loginServiceFake1 = LoginServiceImpl()
+        loginServiceFake1.analyticsData = [
+            "deviceID" : "a098dfad0"
+        ]
+        let loginServiceFake2 = LoginServiceImpl()
+        loginServiceFake2.analyticsData = [
+            "deviceID" : "2342"
+        ]
+
+        // when
+        loginServiceFake1.sendEvent(event: "login")
+        loginServiceFake2.sendEvent(event: "login", data: ["time" : "5:23PM"])
+        
+        // then
+        XCTAssertEqual(loginServiceFake1.analyticsData, ["deviceID" : "a098dfad0"])
+        XCTAssertEqual(loginServiceFake2.analyticsData, ["deviceID" : "2342", "time" : "5:23PM"])
+    }
+    
+    func testMeditationCompleteAnalytics() {
+        // given
+        let meditServiceFake1 = MeditationServiceImpl()
+        meditServiceFake1.analyticsData = [:]
+        let meditServiceFake2 = MeditationServiceImpl()
+        meditServiceFake2.analyticsData = [
+            "deviceID" : "someid",
+            "isMorning" : "true"
+        ]
+        
+        // when
+        meditServiceFake1.sendEvent(event: "started")
+        meditServiceFake2.sendEvent(event: "completed", data: ["durationInDays" : "1"])
+        
+        // then
+        XCTAssertEqual(meditServiceFake1.analyticsData, [:])
+        XCTAssertEqual(meditServiceFake2.analyticsData.count, 3)
     }
     
     func testPerformanceExample() {
