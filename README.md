@@ -59,5 +59,15 @@ Answer 3 of the following questions using Markdown and include the file in your 
 7. What tools have you used to persist data?
  * CoreData, SQL, plist, NSUserDefaults
 
+## Time spent
+
+Rough breakdown:
+
+- Brainstorming: 1.5 hours
+- Implementation: 1 hour
+- Testing: 15 min
+- Documentation: 45 min
+
+Total time: ~3.5 hours
 
 # headspace
