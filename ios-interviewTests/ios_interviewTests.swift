@@ -20,6 +20,9 @@ class ios_interviewTests: XCTestCase {
         super.tearDown()
     }
     
+    // NOTE: Normally would create dummy APIs for unit testing, but since our API is actually a dummy,
+    // just use as is for this project's purposes
+    
     func testLoginAnalytics() {
         // given
         let loginServiceFake1 = LoginServiceImpl()
@@ -32,11 +35,11 @@ class ios_interviewTests: XCTestCase {
         ]
 
         // when
-        loginServiceFake1.sendEvent(event: "login")
+        loginServiceFake1.sendEvent(event: "login", data: ["deviceID" : "newid"])
         loginServiceFake2.sendEvent(event: "login", data: ["time" : "5:23PM"])
         
         // then
-        XCTAssertEqual(loginServiceFake1.analyticsData, ["deviceID" : "a098dfad0"])
+        XCTAssertEqual(loginServiceFake1.analyticsData, ["deviceID" : "newid"])
         XCTAssertEqual(loginServiceFake2.analyticsData, ["deviceID" : "2342", "time" : "5:23PM"])
     }
     
