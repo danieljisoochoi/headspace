@@ -27,17 +27,17 @@ An alternative to the singleton would be to have dependency injection, and injec
 
 ## Fulfilling Requirements
 - Call site is short and sweet
-* yes, much more concise than hard-coding
+ * yes, much more concise than hard-coding
 - Events are modular and can be easily removed
-* yes, all located in one class
+ * yes, all located in one class
 - Events can be named differently per service
-* yes and no, there's an abstract layer called sendEvent, that chooses specific function call given key string
+ * yes and no, there's an abstract layer called sendEvent, that chooses specific function call given key string
 - Events can include different data
-* yes, takes in optional dictionary of string to string, and each service class comes with default dictionary
+ * yes, takes in optional dictionary of string to string, and each service class comes with default dictionary
 - Services are modular and can be easily removed
-* yes?, services are easy to remove from class and singleton, but still need to remove calls from call sites
+ * yes?, services are easy to remove from class and singleton, but still need to remove calls from call sites
 - Services can selectively send events
-* yes, pass in a key string to choose which events to send
+ * yes, pass in a key string to choose which events to send
 
 
 ## Questions
